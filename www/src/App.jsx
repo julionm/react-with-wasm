@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
+
+import { CoolNumber } from 'my-wasm-lib';
+
 import './App.css'
+import { useRef } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const [myNum, setMyNum] = useState(0);
+
+  useEffect(() => {
+    const coolNumber = CoolNumber.new(13);
+
+
+    // setMyNum(coolNumber.get_val());
+  }, []);
 
   return (
     <div className="App">
@@ -19,6 +32,7 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
+          and my cool number is {myNum}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
