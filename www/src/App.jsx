@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
-
-import { CoolNumber } from 'my-wasm-lib';
-
 import './App.css'
-import { useRef } from 'react';
+
+import { MyEmpty } from 'my-wasm-lib';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,10 +10,7 @@ function App() {
   const [myNum, setMyNum] = useState(0);
 
   useEffect(() => {
-    const coolNumber = CoolNumber.new(13);
-
-
-    // setMyNum(coolNumber.get_val());
+    const val = MyEmpty.new();
   }, []);
 
   return (
